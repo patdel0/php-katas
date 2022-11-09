@@ -23,6 +23,18 @@ final class Kata3
 	 */
 	public static function fizzBuzz(): void
 	{
-		echo "";
+		for ($i = 1; $i <= 100; $i++) {
+			$str = '';
+
+			if ($i % 3 === 0) {
+				$str .= 'Fizz';
+			}
+			if ($i % 5 === 0) {
+				$str .= 'Buzz';
+			}
+
+			$fizzBuzzOrNum = strlen($str) ? $str : strval($i);
+			echo $fizzBuzzOrNum . "\n";
+		}
 	}
 }
