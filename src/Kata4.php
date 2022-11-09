@@ -40,7 +40,21 @@ final class Kata4
 	 */
 	public static function bubbleSort(array $array): array
 	{
-		// TODO: Complete this function!
+		$arrayLength = count($array);
+
+		for ($i = 0; $i < $arrayLength; $i++) {
+			for ($j = 0; $j < $arrayLength - $i - 1; $j++) {
+				$array[$j] > $array[$j + 1] && self::swap($array, $j, $j + 1);
+			}
+		}
+
 		return $array;
+	}
+
+	private static function swap(array &$_array, int $currentIndex, int $nextIndex): void
+	{
+		$_tempNumber = (int) $_array[$currentIndex];
+		$_array[$currentIndex] = (int) $_array[$nextIndex];
+		$_array[$nextIndex] = $_tempNumber;
 	}
 }
