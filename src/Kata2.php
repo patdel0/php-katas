@@ -39,19 +39,18 @@ final class Kata2
 	 */
 	public static function gcd(int $n1, int $n2): int
 	{
-		$oneNumberEqualsZero = $n1 === 0 || $n2 === 0;
+		$oneNumberEqualsZero = ($n1 === 0 xor $n2 === 0);
 		$numbersAreLessThanZero = $n1 < 0 || $n2 < 0;
 
 		if ($numbersAreLessThanZero) {
 			throw new InvalidArgumentException('Both integers must be positive');
 		}
+		if ($oneNumberEqualsZero) {
+			throw new InvalidArgumentException('Exactly one argument cannot be 0');
+		}
 
 		if ($n1 === $n2) {
 			return $n1;
-		}
-
-		if ($oneNumberEqualsZero) {
-			throw new InvalidArgumentException('Exactly one argument cannot be 0');
 		}
 
 		if ($n1 > $n2) {
