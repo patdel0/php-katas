@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace Katas;
 
+use InvalidArgumentException;
+
 /**
  * Kata2.
  */
@@ -37,7 +39,24 @@ final class Kata2
 	 */
 	public static function gcd(int $n1, int $n2): int
 	{
-		// TODO: Complete this function!
-		return 0;
+		$oneNumberEqualsZero = ($n1 === 0 xor $n2 === 0);
+		$numbersAreLessThanZero = $n1 < 0 || $n2 < 0;
+
+		if ($numbersAreLessThanZero) {
+			throw new InvalidArgumentException('Both integers must be positive');
+		}
+		if ($oneNumberEqualsZero) {
+			throw new InvalidArgumentException('Neither or both arguments may be zero');
+		}
+
+		if ($n1 === $n2) {
+			return $n1;
+		}
+
+		if ($n1 > $n2) {
+			return self::gcd($n1 - $n2, $n2);
+		}
+
+		return self::gcd($n1, $n2 - $n1);
 	}
 }
