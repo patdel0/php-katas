@@ -24,17 +24,15 @@ final class Kata3
 	public static function fizzBuzz(): void
 	{
 		for ($i = 1; $i <= 100; $i++) {
-			$str = '';
-
-			if ($i % 3 === 0) {
-				$str .= 'Fizz';
+			if ($i % 3 === 0 && $i % 5 === 0) {
+				echo "FizzBuzz\n";
+			} elseif ($i % 3 === 0) {
+				echo "Fizz\n";
+			} elseif ($i % 5 === 0) {
+				echo "Buzz\n";
+			} else {
+				echo "$i\n";
 			}
-			if ($i % 5 === 0) {
-				$str .= 'Buzz';
-			}
-
-			$fizzBuzzOrNum = strlen($str) ? $str : strval($i);
-			echo $fizzBuzzOrNum . "\n";
 		}
 	}
 }
