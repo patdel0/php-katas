@@ -46,7 +46,7 @@ final class Kata2
 			throw new InvalidArgumentException('Both integers must be positive');
 		}
 		if ($oneNumberEqualsZero) {
-			throw new InvalidArgumentException('Exactly one argument cannot be 0');
+			throw new InvalidArgumentException('Neither or both arguments may be zero');
 		}
 
 		if ($n1 === $n2) {
