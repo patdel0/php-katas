@@ -7,8 +7,6 @@ declare(strict_types=1);
 
 namespace Katas;
 
-use Katas\Kata4;
-
 /**
  * Kata5.
  */
