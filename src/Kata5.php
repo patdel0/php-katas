@@ -34,7 +34,6 @@ final class Kata5
 	public static function median(array $array): int
 	{
 		$sum = array_sum($array);
-		$median = intval($sum / count($array));
-		return $median;
+		return intval($sum / count($array));
 	}
 }
