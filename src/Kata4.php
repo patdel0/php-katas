@@ -38,9 +38,23 @@ final class Kata4
 	 *
 	 * HINT: You may want to add a second (private) method to help you here.
 	 */
+	/** @param array<int> $array*/
 	public static function bubbleSort(array $array): array
 	{
-		// TODO: Complete this function!
+		for ($i = 0; $i < count($array); $i++) {
+			for ($j = 0; $j < count($array) - $i - 1; $j++) {
+				if ($array[$j] > $array[$j + 1]) {
+					self::swap($array, $j, $j + 1);
+				}
+			}
+		}
+
 		return $array;
+	}
+
+	/** @param array<int> $array*/
+	private static function swap(array &$array, int $currentIndex, int $nextIndex): void
+	{
+		[$array[$currentIndex], $array[$nextIndex]] = [$array[$nextIndex], $array[$currentIndex]];
 	}
 }
